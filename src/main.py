@@ -1,12 +1,47 @@
 dictionary = []
+potential_word = []
 
-def load_dict(): # made by joe
+def load_dict(): # made by joe | loads the dictionary to a list
     print("Loading Dictionary...")
     dic = open("dictionary.txt", "r+") # sets var dic to open our dictionary text file with reading
     split_dic = dic.read() # reads the opened file
     split_dic = split_dic.split("\n") # splits every new line
     for i in split_dic: # checks for every word
-        dictionary.append(i) # adds the word to the dictionary array
+        dictionary.append(i.lower()) # adds the word to the dictionary array
     print("Finished loading Dictionary\n" + str(len(dictionary)), "words found.")
 
+def look_for_word(a, b, c, d, e): # made by joe | gets the index values of the letters
+    first_run = True
+    matching = []
+    to_find = [] # empty list to add the indexes to
+    to_find.clear() # clears the list
+    look_for = a + b + c + d + e # adds the letters together
+    print("This may take a little...")
+    print("Checking for", look_for)
+    for i in range(5): # loops 5 times
+        if look_for[i] != ".": # checks if the index is == .
+            to_find.append(i+1)
+    for i in range(1, len(look_for) + 1): # loops for the amount of indexes
+        if look_for[i-1] != ".": # checks if the placement if valid
+            if first_run: # checks if it is the first time running so it doesn't always pull from dict array
+                for d in dictionary: # looks through dict array
+                    if d[i-1] != look_for[i-1]: # checks if the first letter of the item in the dict is same letter as looking for
+                        continue
+                    else:
+                        potential_word.append(d)
+                first_run = False # sets the first time to false
+            else: # if its not the first run then it continues down
+                for p in potential_word: # checks all the new app
+                    if p[i-1] != look_for[i-1]: # checks the pot word list for same letters
+                        potential_word.remove(p)
+                        continue
+                    else:
+                        matching.append(p)
+                potential_word.clear()
+                for m in matching: # checks all in matching
+                    potential_word.append(m)
+                matching.clear()
+    print("Search Term", look_for, "\n" + str(potential_word))
+    
 load_dict()
+look_for_word("e", ".", "r", ".", "s")
