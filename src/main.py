@@ -44,4 +44,11 @@ def look_for_word(a, b, c, d, e): # made by joe | gets the index values of the l
     print("Search Term", look_for, "\n" + str(potential_word))
     
 load_dict()
-look_for_word("e", ".", "r", ".", "s")
+temp_letters = []#variable to store our list w
+
+print('Put greys into input statment as periods(.)')
+while True:
+    green_letters = input('Letter Formation:\n')
+    for i in green_letters:
+        temp_letters.append(i)
+    look_for_word(temp_letters[0],temp_letters[1],temp_letters[2],temp_letters[3],temp_letters[4])
