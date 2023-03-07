@@ -1,7 +1,24 @@
+import os, wget
+
 dictionary = [] # used in load dict
 temp_letters = [] #variable to store our list w
 matching = []
 confirmed_letters = [] # letters confirmed green
+
+DIRECTORY = os.getcwd() + "\\"
+DOWNLOAD_DICT = "https://sabercathost.com/mFdW/dictionary.txt"
+
+def check_dict(): # made by joe
+    if os.path.exists(DIRECTORY + "dictionary.txt") == False: # checks if theres no dict txt file
+        print("Downloading Dictionary...") 
+        try:
+            wget.download(DOWNLOAD_DICT, "dictionary.txt") # downloads it from the link
+            os.system('cls') # clears the command prompt to empty
+            print("Finished Downloading Dictionary.")
+        except:
+            print("\nError Downloading File")
+    else:
+        print("Found Dictionary File.")
 
 def load_dict(): # made by joe | loads the dictionary to a list
     print("Loading Dictionary...")
@@ -37,15 +54,16 @@ def look_for_gay(a, b, c, d, e): #made by joe
     look_for = a + b + c + d + e # adds the letters together
     for i in range(1, len(look_for) + 1): # loops for the amount of indexes
         if look_for[i-1] != ".": # checks if the placement if valid
-            for p in dictionary:
-                if look_for[i-1] not in confirmed_letters:
+            if look_for[i-1] not in confirmed_letters:
+                for p in dictionary:
                     if look_for[i-1] not in p:
                         matching.append(p)
-            dictionary.clear()
-            for m in matching:
-                dictionary.append(m)
-            matching.clear()
-    
+                dictionary.clear()
+                for m in matching:
+                    dictionary.append(m)
+                matching.clear()
+
+check_dict()
 load_dict()
 
 print('\nPut greys into input statment as periods. [Ex. Steak, .t.ak]')
