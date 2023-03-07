@@ -1,7 +1,6 @@
 dictionary = [] # used in load dict
 potential_word = [] # used in look_For_word
 temp_letters = [] #variable to store our list w
-first_run = True
 
 def load_dict(): # made by joe | loads the dictionary to a list
     print("Loading Dictionary...")
@@ -14,7 +13,6 @@ def load_dict(): # made by joe | loads the dictionary to a list
     print("Finished loading Dictionary\n" + str(len(dictionary)), "words found.")
 
 def look_for_word(a, b, c, d, e): # made by joe | gets the index values of the letters
-    global first_run
     matching = []
     to_find = [] # empty list to add the indexes to
     to_find.clear() # clears the list
