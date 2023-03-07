@@ -5,21 +5,6 @@ temp_letters = [] #variable to store our list w
 matching = []
 confirmed_letters = [] # letters confirmed green
 
-DIRECTORY = os.getcwd() + "\\"
-DOWNLOAD_DICT = "https://sabercathost.com/mFdW/dictionary.txt"
-
-def check_dict(): # made by joe
-    if os.path.exists(DIRECTORY + "dictionary.txt") == False: # checks if theres no dict txt file
-        print("Downloading Dictionary...") 
-        try:
-            wget.download(DOWNLOAD_DICT, "dictionary.txt") # downloads it from the link
-            os.system('cls') # clears the command prompt to empty
-            print("Finished Downloading Dictionary.")
-        except:
-            print("\nError Downloading File")
-    else:
-        print("Found Dictionary File.")
-
 def load_dict(): # made by joe | loads the dictionary to a list
     print("Loading Dictionary...")
     dic = open("dictionary.txt", "r+") # sets var dic to open our dictionary text file with reading
