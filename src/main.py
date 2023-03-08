@@ -58,7 +58,8 @@ def look_for_yellow(a, b, c, d, e):#made by kosta
          if look_for[i-1] != ".":#checks placement
                 for p in dictionary:
                     if look_for[i-1] in p:#if the yellow letter is in the word it returns the word
-                        matching.append(p)
+                        if p[i-1] != look_for[i-1]:
+                            matching.append(p)
                 dictionary.clear()
                 for m in matching:
                     dictionary.append(m)
