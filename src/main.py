@@ -1,4 +1,4 @@
-import os, wget
+import os
 
 dictionary = [] # used in load dict
 temp_letters = [] #variable to store our list w
@@ -30,9 +30,18 @@ def look_for_word(a, b, c, d, e): # made by joe | gets the index values of the l
                 dictionary.append(m)
             matching.clear()
 
-def look_for_yellow(a, b, c, d, e):
-    print("does nothing yet cuz of kosta")
-    #kosta put ur bitch ass shit here tard
+def look_for_yellow(a, b, c, d, e):#made by kosta
+    matching.clear()
+    look_for = a + b + c + d + e#combines the letters
+    for i in range(1, len(look_for) + 1):#loops indexes
+         if look_for[i-1] != ".":#checks placement
+                for p in dictionary:
+                    if look_for[i-1] in p:#if the yellow letter is in the word it returns the word
+                        matching.append(p)
+                dictionary.clear()
+                for m in matching:
+                    dictionary.append(m) 
+                matching.clear()                
 
 def look_for_gay(a, b, c, d, e): #made by joe
     matching.clear()
@@ -48,10 +57,9 @@ def look_for_gay(a, b, c, d, e): #made by joe
                     dictionary.append(m)
                 matching.clear()
 
-check_dict()
 load_dict()
 
-print('\nPut greys into input statment as periods. [Ex. Steak, .t.ak]')
+print('\nPut greys into input statment as periods. [Ex. Steak, .t.ak]')#made by kosta
 while True:
     green_letters = str(input('\nLetter Formation [Green Letters]: \n')).lower()
     for i in green_letters:
@@ -60,6 +68,12 @@ while True:
             confirmed_letters.append(i)
     look_for_word(temp_letters[0], temp_letters[1], temp_letters[2], temp_letters[3], temp_letters[4])
     temp_letters.clear()
+    yellow_letters = str(input('\nLetter Formation [Yellow Letters]: \n')).lower()
+    for i in yellow_letters:
+        temp_letters.append(i)
+    look_for_yellow(temp_letters[0], temp_letters[1], temp_letters[2], temp_letters[3], temp_letters[4])
+    temp_letters.clear()
+        
     gay_letters = str(input("\nLetter Formation [Gray Letters]: \n")).lower()
     for i in gay_letters:
         temp_letters.append(i)
