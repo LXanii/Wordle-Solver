@@ -1,5 +1,3 @@
-import os
-
 dictionary = [] # used in load dict
 temp_letters = [] #variable to store our list w
 matching = []
@@ -71,6 +69,8 @@ while True:
     yellow_letters = str(input('\nLetter Formation [Yellow Letters]: \n')).lower()
     for i in yellow_letters:
         temp_letters.append(i)
+        if "." not in i:
+            confirmed_letters.append(i)
     look_for_yellow(temp_letters[0], temp_letters[1], temp_letters[2], temp_letters[3], temp_letters[4])
     temp_letters.clear()
         
