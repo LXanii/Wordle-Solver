@@ -57,7 +57,7 @@ def look_for_gay(a, b, c, d, e): #made by joe
 
 load_dict()
 
-print('\nPut greys into input statment as periods. [Ex. Steak, .t.ak]')#made by kosta
+print('\nPut greys into input statment as periods. [Ex. Steak, .t.ak]')#made by kosta & joe
 while True:
     green_letters = str(input('\nLetter Formation [Green Letters]: \n')).lower()
     for i in green_letters:
