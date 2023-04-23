@@ -14,7 +14,7 @@ def load_dict(): # made by joe | loads the dictionary to a list
     print("Finished loading Dictionary\n" + str(len(dictionary)), "words found.")
 
 def retrieve_letters():
-    print('\nPut greys into input statment as periods. [Ex. Steak, .t.ak]') # made by kosta & joe
+    print('\nPut greys into input statment as periods. [Ex. Steak, .t.ak]') # made by kosta
     while True:
         green_letters = str(input('\nLetter Formation [Green Letters]: \n')).lower()
         for i in green_letters:
